@@ -1,0 +1,11 @@
+{
+    "require":{
+        "php":">=5.3.9",
+        "pda/pheanstalk": "2.*@dev",
+        "ellislab/codeigniter": "dev-release/3.0",
+        "giggsey/libphonenumber-for-php": "6.*@dev",
+        "caseyamcl/Configula": "dev-master",
+        "cboden/ratchet": "0.3.*",
+        "gabrielbull/websocket-client": "dev-master"
+    }
+}
