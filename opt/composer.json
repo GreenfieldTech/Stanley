@@ -6,6 +6,7 @@
         "giggsey/libphonenumber-for-php": "6.*@dev",
         "caseyamcl/Configula": "dev-master",
         "cboden/ratchet": "0.3.*",
-        "gabrielbull/websocket-client": "dev-master"
+        "gabrielbull/websocket-client": "dev-master",
+        "educoder/pest": "1.0.0"
     }
 }
