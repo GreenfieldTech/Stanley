@@ -6,6 +6,13 @@
  * Time: 3:35 PM
  */
 
+/**
+ * Class M_ari_asterisk
+ *
+ * The following Module class implements the ARI Asterisk interface, as described in the following URL:
+ * https://wiki.asterisk.org/wiki/display/AST/Asterisk+12+Asterisk+REST+API
+ */
+
 class M_ari_asterisk extends CI_Model {
 
     function __construct()
