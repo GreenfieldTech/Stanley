@@ -13,7 +13,7 @@
  * https://wiki.asterisk.org/wiki/display/AST/Asterisk+12+Asterisk+REST+API
  */
 
-class M_ari_devicestates extends CI_Model {
+class M_ari_endpoints extends CI_Model {
 
     function __construct()
     {
