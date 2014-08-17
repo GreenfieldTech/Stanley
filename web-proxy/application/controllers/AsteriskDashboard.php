@@ -19,16 +19,22 @@ class AsteriskDashboard extends CI_Controller {
 
         parent::__construct();
 
-        try { /*
-         * Setup your ARI login information here - normally, this will be in an external configuration
-         */
+        try {
+            /*
+             * Bootstrap exception handling object
+             */
+            $this->load->helper('stanley_exception_helper');
+
+            /*
+             * Setup your ARI login information here - normally, this will be in an external configuration
+             */
             $ari_url = "http://178.62.19.221:8088/ari/asterisk";
             $ari_username = "ariuser";
             $ari_password = "4r1u53r";
 
             /*
-                 * Now, we will setup our PEST instance
-                 */
+             * Now, we will setup our PEST instance
+             */
             $this->ari_endpoint = new Pest($ari_url);
             $this->ari_endpoint->setupAuth($ari_username, $ari_password, "basic");
 

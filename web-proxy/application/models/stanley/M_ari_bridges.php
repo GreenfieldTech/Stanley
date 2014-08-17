@@ -24,7 +24,7 @@ class M_ari_bridges extends CI_Model {
     /**
      * Get the current list of active bridges
      *
-     * @param null $pestObject - the PEST object from the primary controller
+     * @param null (string) $pestObject - the PEST object from the primary controller
      * @return JSON|bool - false for a failure, JSON object for all other results
      */
     public function bridges_list($pestObject = null) {
@@ -40,6 +40,7 @@ class M_ari_bridges extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
+            set_session_exception($e);
             return false;
         }
     }
@@ -47,10 +48,10 @@ class M_ari_bridges extends CI_Model {
     /**
      * Setup a new bridge or update an existing one
      *
-     * @param null $pestObject - the PEST object from the primary controller
-     * @param null $bridge_id - The ID of the bridge you would like to use
-     * @param null $bridge_type
-     * @param null $bridge_name
+     * @param null (string) $pestObject - the PEST object from the primary controller
+     * @param null (string) $bridge_id - The ID of the bridge you would like to use
+     * @param null (string) $bridge_type
+     * @param null (string) $bridge_name
      * @return Integer|bool - False on success, True or integer on failure
      */
     public function bridge_create_or_update($pestObject = null, $bridge_type = null, $bridge_id = null, $bridge_name = null) {
@@ -66,6 +67,7 @@ class M_ari_bridges extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
+            set_session_exception($e);
             return false;
         }
     }
@@ -73,8 +75,8 @@ class M_ari_bridges extends CI_Model {
     /**
      * Get the details of a currently active bridge
      *
-     * @param null $pestObject - the PEST object from the primary controller
-     * @param null $bridge_id - The ID of the bridge you would like to use
+     * @param null (string) $pestObject - the PEST object from the primary controller
+     * @param null (string) $bridge_id - The ID of the bridge you would like to use
      * @return JSON|bool - JSON Object on success, True or integer on failure
      */
     public function bridge_get_details($pestObject = null, $bridge_id = null) {
@@ -90,6 +92,7 @@ class M_ari_bridges extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
+            set_session_exception($e);
             return false;
         }
     }
@@ -97,8 +100,8 @@ class M_ari_bridges extends CI_Model {
     /**
      * Destroy a currently active bridge
      *
-     * @param null $pestObject - the PEST object from the primary controller
-     * @param null $bridge_id - The ID of the bridge you would like to use
+     * @param null (string) $pestObject - the PEST object from the primary controller
+     * @param null (string) $bridge_id - The ID of the bridge you would like to use
      * @return Integer|bool - False on success, True or integer on failure
      */
     public function bridge_destroy($pestObject = null, $bridge_id = null) {
@@ -114,6 +117,7 @@ class M_ari_bridges extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
+            set_session_exception($e);
             return false;
         }
     }
@@ -140,6 +144,7 @@ class M_ari_bridges extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
+            set_session_exception($e);
             return false;
         }
     }
@@ -165,6 +170,7 @@ class M_ari_bridges extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
+            set_session_exception($e);
             return false;
         }
     }
@@ -190,6 +196,7 @@ class M_ari_bridges extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
+            set_session_exception($e);
             return false;
         }
     }
@@ -214,6 +221,7 @@ class M_ari_bridges extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
+            set_session_exception($e);
             return false;
         }
     }
@@ -250,6 +258,7 @@ class M_ari_bridges extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
+            set_session_exception($e);
             return false;
         }
     }
@@ -287,6 +296,7 @@ class M_ari_bridges extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
+            set_session_exception($e);
             return false;
         }
     }

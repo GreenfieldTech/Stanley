@@ -56,6 +56,7 @@ class M_ari_asterisk extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
+            set_session_exception($e);
             return false;
         }
 
@@ -90,6 +91,7 @@ class M_ari_asterisk extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
+            set_session_exception($e);
             return false;
         }
 
@@ -124,6 +126,7 @@ class M_ari_asterisk extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
+            set_session_exception($e);
             return false;
         }
 
