@@ -34,7 +34,7 @@ class M_ari_sounds extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
-            set_session_exception($e);
+            set_session_exception($this->session, $e);;
             return false;
         }
     }

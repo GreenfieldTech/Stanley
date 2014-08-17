@@ -48,7 +48,7 @@ class M_ari_asterisk extends CI_Model {
                     break;
             }
 
-            $uri = "/info";
+            $uri = "/asterisk/info";
             $uri .= (!is_null($filter))?'?only='.$filter:'';
 
             $result = json_decode($pestObject->get($uri));
@@ -56,7 +56,7 @@ class M_ari_asterisk extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
-            set_session_exception($e);
+            set_session_exception($this->session, $e);;
             return false;
         }
 
@@ -91,7 +91,7 @@ class M_ari_asterisk extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
-            set_session_exception($e);
+            set_session_exception($this->session, $e);;
             return false;
         }
 
@@ -126,7 +126,7 @@ class M_ari_asterisk extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
-            set_session_exception($e);
+            set_session_exception($this->session, $e);;
             return false;
         }
 

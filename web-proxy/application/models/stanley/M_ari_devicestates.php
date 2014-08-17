@@ -34,7 +34,7 @@ class M_ari_devicestates extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
-            set_session_exception($e);
+            set_session_exception($this->session, $e);;
             return false;
         }
     }
@@ -58,7 +58,7 @@ class M_ari_devicestates extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
-            set_session_exception($e);
+            set_session_exception($this->session, $e);;
             return false;
         }
     }
@@ -79,7 +79,7 @@ class M_ari_devicestates extends CI_Model {
             return $result;
 
         } catch (Exception $e) {
-            set_session_exception($e);
+            set_session_exception($this->session, $e);;
             return false;
         }
     }

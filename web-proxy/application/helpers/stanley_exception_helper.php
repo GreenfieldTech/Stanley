@@ -6,25 +6,35 @@
  * Time: 1:14 PM
  */
 
-function set_session_exception ($e = null) {
+function set_session_exception ($session = null, $e = null) {
 
-    if (is_null($e)) return false;
+    if (is_null($session))
+        return false;
 
-    $this->session->set_userdata("session_exception", $e);
+    if (is_null($e))
+        return false;
+
+    $session->set_userdata("session_exception", $e);
 
     return true;
 }
 
-function get_session_exception () {
+function get_session_exception ($session = null) {
 
-    $e = $this->session->userdata('session_exception');
+    if (is_null($session))
+        return false;
+
+    $e = $session->userdata('session_exception');
 
     return $e;
 }
 
-function unset_session_exception () {
+function unset_session_exception ($session = null) {
 
-    $this->session->unset_userdata('session_exception');
+    if (is_null($session))
+        return false;
+
+    $session->unset_userdata('session_exception');
 
     return true;
 }

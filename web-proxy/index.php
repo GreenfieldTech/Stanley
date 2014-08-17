@@ -45,7 +45,12 @@
 
 define('ENVIRONMENT', 'development');
 
-define('MY_PROTOCOL', (isset($_SERVER["HTTPS"]) && (strlen($_SERVER['HTTPS']) != 0)) ? 'https://' . $_SERVER['HTTP_HOST'] . '/' : 'http://' . $_SERVER['HTTP_HOST'] . '/');
+if(isset($_SERVER['SERVER_ADDR'])) {
+    define('MY_PROTOCOL', (isset($_SERVER["HTTPS"]) && (strlen($_SERVER['HTTPS']) != 0)) ? 'https://' . $_SERVER['HTTP_HOST'] . '/' : 'http://' . $_SERVER['HTTP_HOST'] . '/');
+} else {
+    define('MY_PROTOCOL', './');
+}
+
 
 /*
  *---------------------------------------------------------------

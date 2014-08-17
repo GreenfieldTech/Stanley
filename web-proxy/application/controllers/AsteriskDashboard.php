@@ -28,7 +28,7 @@ class AsteriskDashboard extends CI_Controller {
             /*
              * Setup your ARI login information here - normally, this will be in an external configuration
              */
-            $ari_url = "http://178.62.19.221:8088/ari/asterisk";
+            $ari_url = "http://178.62.19.221:8088/ari";
             $ari_username = "ariuser";
             $ari_password = "4r1u53r";
 
