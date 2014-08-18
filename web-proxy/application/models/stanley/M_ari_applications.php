@@ -21,6 +21,11 @@ class M_ari_applications extends CI_Model {
         parent::__construct();
     }
 
+    /**
+     * @param null $pestObject
+     * @param null $application_name
+     * @return bool|mixed
+     */
     public function get_applications_list($pestObject = null, $application_name = null) {
         try {
 
@@ -29,7 +34,10 @@ class M_ari_applications extends CI_Model {
             if (is_null($pestObject))
                 throw new Exception("PEST Object not provided or is null", 503);
 
-            //TODO: Fill in the gaps!
+            $uri = "/applications";
+            $uri .= (!is_null($application_name))?"?applicationName=" . $application_name:"";
+
+            $result = json_decode($pestObject->get($uri));
 
             return $result;
 
@@ -39,6 +47,12 @@ class M_ari_applications extends CI_Model {
         }
     }
 
+    /**
+     * @param null $pestObject
+     * @param null $application_name
+     * @param null $event_source
+     * @return bool
+     */
     public function subscribe_application($pestObject = null, $application_name = null, $event_source = null) {
         try {
 
@@ -53,7 +67,10 @@ class M_ari_applications extends CI_Model {
             if (is_null($pestObject))
                 throw new Exception("event_source not provided or is null", 503);
 
-            //TODO: Fill in the gaps!
+            $uri = "/applications/" . $application_name . "/subscription";
+            $postData = array("eventSource"=>$event_source);
+
+            $result = $pestObject->post($uri, $postData);
 
             return $result;
 
@@ -63,6 +80,12 @@ class M_ari_applications extends CI_Model {
         }
     }
 
+    /**
+     * @param null $pestObject
+     * @param null $application_name
+     * @param null $event_source
+     * @return bool
+     */
     public function unsubscribe_application($pestObject = null, $application_name = null, $event_source = null) {
         try {
 
@@ -77,7 +100,10 @@ class M_ari_applications extends CI_Model {
             if (is_null($pestObject))
                 throw new Exception("event_source not provided or is null", 503);
 
-            //TODO: Fill in the gaps!
+            $uri = "/applications/" . $application_name . "/subscription";
+            $postData = array("eventSource"=>$event_source);
+
+            $result = $pestObject->delete($uri, $postData);
 
             return $result;
 

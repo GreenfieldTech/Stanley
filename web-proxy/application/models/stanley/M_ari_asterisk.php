@@ -82,7 +82,7 @@ class M_ari_asterisk extends CI_Model {
             if (is_null($variable))
                 throw new Exception("Global variable name not provided or is null", 503);
 
-            $uri = "/variable?variable=" . $variable;
+            $uri = "/asterisk/variable?variable=" . $variable;
 
             $jsonResult = json_decode($pestObject->get($uri));
 
@@ -118,7 +118,7 @@ class M_ari_asterisk extends CI_Model {
             if (is_null($value))
                 throw new Exception("Global variable value not provided or is null", 503);
 
-            $uri = "/variable";
+            $uri = "/asterisk/variable";
             $postData = array("variable"=>$variable, "value"=>$value);
 
             $result = $pestObject->post($uri, $postData);
