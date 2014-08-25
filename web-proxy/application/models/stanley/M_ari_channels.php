@@ -116,8 +116,12 @@ class M_ari_channels extends CI_Model {
             if (is_null($pestObject))
                 throw new Exception("PEST Object not provided or is null", 503);
 
+            if (is_null($channel_id))
+                throw new Exception("PEST Object not provided or is null", 503);
+
             //TODO: Fill in the gaps!
 
+            $result = $pestObject->get("/channels/" . $channel_id);
             return $result;
 
         } catch (Exception $e) {
@@ -126,7 +130,7 @@ class M_ari_channels extends CI_Model {
         }
     }
 
-    public function channel_delete($pestObject = null) {
+    public function channel_delete($pestObject = null, $channel_id = null) {
         try {
 
             $result = false;
@@ -134,8 +138,10 @@ class M_ari_channels extends CI_Model {
             if (is_null($pestObject))
                 throw new Exception("PEST Object not provided or is null", 503);
 
-            //TODO: Fill in the gaps!
+            if (is_null($channel_id))
+                throw new Exception("Channel ID not provided or is null", 503);
 
+            $result = $pestObject->delete("/channels/" . $channel_id);
             return $result;
 
         } catch (Exception $e) {
@@ -378,7 +384,7 @@ class M_ari_channels extends CI_Model {
         }
     }
 
-    public function channel_playback($pestObject = null) {
+    public function channel_playback($pestObject = null, $channel_id = null, $media = null, $lang = "en", $offsetms = 0, $skipms = 3000, $playbackid = null) {
         try {
 
             $result = false;
@@ -386,7 +392,22 @@ class M_ari_channels extends CI_Model {
             if (is_null($pestObject))
                 throw new Exception("PEST Object not provided or is null", 503);
 
+            if (is_null($media))
+                throw new Exception("media URI not provided or is null", 503);
+
+            if (is_null($channel_id))
+                throw new Exception("channel ID not provided or is null", 503);
+
             //TODO: Fill in the gaps!
+
+            $postData = array(
+                            "media" => $media,
+                            "lang" => $lang,
+                            "offsetms" => $offsetms,
+                            "skipms" => $skipms,
+                            "playbackId" => $playbackid
+                        );
+            $result = $pestObject->post("/channels/" . $channel_id . "/play", $postData);
 
             return $result;
 
