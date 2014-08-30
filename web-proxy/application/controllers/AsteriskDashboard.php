@@ -79,9 +79,11 @@ class AsteriskDashboard extends CI_Controller
                 switch ($messageData->type) {
                     case "StasisStart":
                         $this->stasisLogger->notice("Stasis Start");
-                        $this->channels->channel_playback($this->ari_endpoint, $messageData->channel->id, "sound:hello-world");
-                        $this->channels->channel_playback($this->ari_endpoint, $messageData->channel->id, "sound:demo-congrats");
-                        $this->channels->channel_delete($this->ari_endpoint, $messageData->channel->id);
+                        $lastResult = $this->channels->channel_playback($this->ari_endpoint, $messageData->channel->id, "sound:hello-world");
+                        $this->stasisLogger->notice("Last result: " . $lastResult);
+                        $lastResult = $this->channels->channel_playback($this->ari_endpoint, $messageData->channel->id, "sound:demo-congrats");
+                        $this->stasisLogger->notice("Last result: " . $lastResult);
+                        //$this->channels->channel_delete($this->ari_endpoint, $messageData->channel->id);
                         //$this->stasisClient->close();
                         break;
                     case "StasisEnd":
