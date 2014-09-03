@@ -32,7 +32,7 @@ class M_ari_asterisk extends CI_Model {
 
         try {
 
-            $result = false;
+            $result = array('status'=>503,"message"=>"asterisk server say hi" ,"result" =>null);
 
             if (is_null($pestObject))
                 throw new Exception("PEST Object not provided or is null", 503);
@@ -51,7 +51,22 @@ class M_ari_asterisk extends CI_Model {
             $uri = "/info";
             $uri .= (!is_null($filter))?'?only='.$filter:'';
 
-            $result = json_decode($pestObject->get($uri));
+
+
+
+            $response = json_decode($pestObject->get($uri));
+
+            if(isset($response))
+            {
+
+                $result['status'] = 200;
+                $result['result'] = $response;
+
+
+            }
+
+
+
 
             return $result;
 
@@ -63,7 +78,7 @@ class M_ari_asterisk extends CI_Model {
 
     /**
      *
-     * Set the value of a global variable
+     * Get the value of a global variable
      *
      * @param null $pestObject - the PEST object from the primary controller
      * @param null $variable - the global variable to get the value for
