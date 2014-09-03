@@ -1,0 +1,59 @@
+{
+    "applications": {
+        "eslane-callback": {
+            "LegA_prefix": "Local",
+            "LegA_suffix": "eslane-spooler-legA",
+            "LegB_Context": "eslane-spooler-blackhole",
+            "LegB_Priority": 1,
+            "LegB_Extension": "BY_ORIGINATE",
+            "DataFormat": [
+                "origin",
+                "destination",
+                "timeout"
+            ]
+        }
+    },
+
+    "servers": {
+        "ari_langust" : {
+            "ari_url"  : "http://178.62.185.100:8088/ari",
+            "ari_host" : "178.62.185.100:8088",
+            "ari_username" : "lnotik",
+            "ari_password" : "hwab7bk"
+        },
+        "ari" : {
+            "ari_url"  : "http://178.62.19.221:8088/ari/asterisk",
+            "ari_host" : "178.62.19.221:8088",
+            "ari_username" : "ariuser",
+            "ari_password" : "4r1u53r"
+        },
+        "redis": {
+            "mandatory": 1,
+            "server": "188.226.159.198",
+            "port": 6379,
+            "db": 1
+        },
+        "database": {
+            "type": "mysql",
+            "mandatory": 1,
+            "server": "188.226.159.198",
+            "username": "asteriskuser",
+            "password": "45t3r15ku53r",
+            "schema": "asterisk"
+        },
+        "beanstalkd": {
+            "mandatory": 1,
+            "server": "188.226.159.198",
+            "port": 11300,
+            "jobtube": "spool",
+            "cdrtube": "cdrs",
+            "eventtube": "events"
+        },
+        "logserver": {
+            "type": "graylog",
+            "mandatory": 1,
+            "server": "188.226.253.14",
+            "port": 12201
+        }
+    }
+}

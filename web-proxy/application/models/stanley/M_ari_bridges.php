@@ -37,7 +37,15 @@ class M_ari_bridges extends CI_Model {
 
             //TODO: Fill in the gaps!
 
+            $uri     = "/bridges";
+            $jsonResult = json_decode($pestObject->get($uri));
+
+            $result = $jsonResult;
+
             return $result;
+
+
+
 
         } catch (Exception $e) {
             return false;
@@ -61,9 +69,27 @@ class M_ari_bridges extends CI_Model {
             if (is_null($pestObject))
                 throw new Exception("PEST Object not provided or is null", 503);
 
-            //TODO: Fill in the gaps!
+
+
+            switch ($bridge_type) {
+                case "mixing":
+                case "holding":
+                case "dtmf_events":
+                case "proxy_media":
+                    break;
+                default:
+                    $bridge_type = null;
+                    break;
+            }
+
+
+            $uri     = "/bridges";
+
+            $postData = array("bridgeId"=>$bridge_id, "type"=>$bridge_type,"name"=>$bridge_name);
+            $result = $pestObject->post($uri,$postData);
 
             return $result;
+
 
         } catch (Exception $e) {
             return false;

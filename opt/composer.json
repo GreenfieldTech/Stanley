@@ -7,6 +7,12 @@
         "caseyamcl/Configula": "dev-master",
         "cboden/ratchet": "0.3.*",
         "gabrielbull/websocket-client": "dev-master",
-        "educoder/pest": "1.0.0"
+        "educoder/pest": "1.0.0",
+        "zendframework/zend-config": "2.0.*",
+        "zendframework/zend-http": "2.0.*",
+        "devristo/phpws": "dev-master"
     }
+
+
+
 }

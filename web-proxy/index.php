@@ -44,8 +44,10 @@
  */
 
 define('ENVIRONMENT', 'development');
+//define('MY_PROTOCOL', (isset($_SERVER["HTTPS"]) && (strlen($_SERVER['HTTPS']) != 0)) ? 'https://' . $_SERVER['HTTP_HOST'] . '/' : 'http://' . $_SERVER['HTTP_HOST'] . '/');
+define('MY_PROTOCOL', 'http://localhost' . '/');
 
-define('MY_PROTOCOL', (isset($_SERVER["HTTPS"]) && (strlen($_SERVER['HTTPS']) != 0)) ? 'https://' . $_SERVER['HTTP_HOST'] . '/' : 'http://' . $_SERVER['HTTP_HOST'] . '/');
+
 
 /*
  *---------------------------------------------------------------
@@ -280,7 +282,7 @@ switch (ENVIRONMENT)
  *
  * And away we go...
  */
-
+require_once $system_base_path . "opt/stasis/lib/stasis-constants.php";
 require_once $system_base_path . "opt/vendor/autoload.php";
 require_once BASEPATH.'core/CodeIgniter.php';
 
