@@ -17,6 +17,11 @@
 # My CentOS version
 MY_CENTOS_VERSION=`cat  /etc/redhat-release | cut -d" " -f4 | cut -d"." -f1`
 
+# Fix for (Final) version
+if [ $MY_CENTOS_VERSION == "(Final)" ]; then
+	MY_CENTOS_VERSION=`cat  /etc/redhat-release | cut -d" " -f3 | cut -d"." -f1`
+fi
+
 # What Asterisk source code tag are we working with
 MY_GIT_REPO=/tmp
 
