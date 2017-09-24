@@ -40,8 +40,8 @@ MY_ASTERISK_MYSQL_REALTIME_SIP=0
 
 
 
-# Check that GCC is here at all
-if [ -f /usr/bin/gcc ]; then
+# Check that GCC is here at all. Install if not
+if [ ! -f /usr/bin/gcc ]; then
 	yum install -y gcc gcc-cpp gcc-c++ automake autoconf uuid libuuid libuuid-devel python-devel libevent-devel unbound-devel unbound-libs unbound-python
 fi
 
@@ -98,7 +98,7 @@ else
 fi
 
 if [ $MY_ASTERISK_MAJOR == 12 ]; then
-	yum install jansson-devel jansson
+	yum install -y jansson-devel jansson
 fi
 
 # Download Asterisk
